@@ -1,51 +1,27 @@
 ﻿@model FutureValueModel
 @{
-    Layout = null;
+    ViewData["Title"] = "Future Value Calculator";
 }
-<!DOCTYPE html> 
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Home Page</title>
-        <style>
-            body {
-                padding: 1em;
-            }
-            h1 {
-                margin-top: 0;
-                color: navy;
-            }
-            label {
-                display: inline-block;
-                width: 10em;
-                padding-right: 1em;
-            }
-            div {
-                margin-bottom: .5em;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Future Value Calculator</h1>
-        <form asp-controller="Home" asp-action="Index" method="post">
-            <div>
-                <label asp-for="MonthlyInvestment">Monthly Investment:</label>
-                <input asp-for="MonthlyInvestment" />
-            </div>
-            <div>
-            <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label>
-            <input asp-for="YearlyInterestRate" />
-            </div>
-            <div>
-            <label asp-for="Years">Number of Years:</label>
-            <input asp-for="Years" />
-            </div>
-            <div>
-                <label>Future Value:</label>
-                <input value="@ViewBag.FV.ToString("C2")"/>
-            </div>
-            <button type="submit">Calculate</button>
-        <a asp-controller="Home" asp-action="Index">Clear</a>
-        </form>
-    </body>
-</html>
+<!DOCTYPE html>
+
+<h1>Future Value Calculator</h1>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <div>
+        <label asp-for="MonthlyInvestment">Monthly Investment:</label>
+        <input asp-for="MonthlyInvestment" />
+    </div>
+    <div>
+        <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label>
+        <input asp-for="YearlyInterestRate" />
+    </div>
+    <div>
+        <label asp-for="Years">Number of Years:</label>
+        <input asp-for="Years" />
+    </div>
+    <div>
+        <label>Future Value:</label>
+        <input value="@ViewBag.FV.ToString("C2")" />
+    </div>
+    <button type="submit">Calculate</button>
+    <a asp-controller="Home" asp-action="Index">Clear</a>
+</form>
