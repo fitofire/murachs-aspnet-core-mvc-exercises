@@ -3,7 +3,11 @@
     ViewData["Title"] = "Future Value Calculator";
 }
 <div class="container">
-    <h1>Future Value Calculator</h1>
+    <h1 class="text-center">Future Value Calculator</h1>
+    <div class="alert alert-info alert-dismissible">
+        This site uses cookies. <a asp-controller="Home" asp-action="Index" class="alert-link">View cookie policy</a>
+        <button class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
     <form method="post" asp-controller="Home" asp-action="Index">
         <div class="row">
             <div class="col-12">
