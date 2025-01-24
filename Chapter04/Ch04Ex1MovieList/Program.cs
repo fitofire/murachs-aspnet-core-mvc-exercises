@@ -1,7 +1,15 @@
+// Adding the necessary using directives, including the using directive for the Models namespace
+using Ch04Ex1MovieList.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add Entity Framework Core enabling Dependency Injection for DbContext objects.
+builder.Services.AddDbContext<MovieContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("MovieContext")));
 
 var app = builder.Build();
 
