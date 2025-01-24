@@ -9,7 +9,7 @@ builder.Services.AddControllersWithViews();
 
 // Add Entity Framework Core enabling Dependency Injection for DbContext objects.
 builder.Services.AddDbContext<MovieContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("MovieContext")));
+    builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
