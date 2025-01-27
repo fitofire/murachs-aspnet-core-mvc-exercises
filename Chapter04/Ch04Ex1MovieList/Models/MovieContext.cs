@@ -11,7 +11,7 @@ namespace Ch04Ex1MovieList.Models
         // EF Core uses DbSet properties like this one to generate database tables with the specified names.
         public DbSet<Movie> Movies { get; set; } = null!;
 
-        public override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             modelBuilder.Entity<Movie>().HasData(
                     new Movie
@@ -38,6 +38,6 @@ namespace Ch04Ex1MovieList.Models
                         Rating = 4
                     }
                 );
-        }
+        } 
     }
 }
