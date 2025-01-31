@@ -29,5 +29,8 @@ namespace Ch04Ex1MovieList.Models
         // Turning off data validation for the Genre property
         [ValidateNever]
         public Genre Genre { get; set; } = null!;
+
+        // Adding a read-only property name Slug
+        public string Slug => Name?.Replace(' ', '-').ToLower() + '-' + Year?.ToString();
     }
 }
