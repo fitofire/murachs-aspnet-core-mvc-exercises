@@ -1,5 +1,6 @@
 ﻿// required to add data annoatations
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace Ch04Ex1MovieList.Models
@@ -19,5 +20,14 @@ namespace Ch04Ex1MovieList.Models
         [Required(ErrorMessage = "Please enter a rating.")]
         [Range(1, 5, ErrorMessage = "Rating must be between 1 - 5.")]
         public int? Rating { get; set; }
+
+        // Specifying a foreign key property when adding a Genre property with data validation
+        [Required(ErrorMessage = "Please enter a genre.")]
+        public string GenreId { get; set; } = string.Empty;
+
+        // Adding a Genre property to the Movie class to relate to the Genre Class
+        // Turning off data validation for the Genre property
+        [ValidateNever]
+        public Genre Genre { get; set; } = null!;
     }
 }
