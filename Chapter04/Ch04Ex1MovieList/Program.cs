@@ -11,6 +11,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<MovieContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("MovieContext")));
 
+// Add services to make URLs lowercase and end with a trailing slash
+builder.Services.AddRouting(options =>
+{
+    options.LowercaseUrls = true;
+    options.AppendTrailingSlash = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
